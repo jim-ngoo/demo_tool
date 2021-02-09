@@ -62,5 +62,19 @@ document.addEventListener('mouseup', function(e) {
 
         ctx_b.strokeRect(locA.x, locA.y, (locB.x - locA.x), (locB.y - locA.y));
         ctx_a.strokeRect(locA.x, locA.y, (locB.x - locA.x), (locB.y - locA.y));
+
+        x = locA.x * 2;
+        y = locA.y * 2;
+        width = (locB.x - locA.x) * 2;
+        height = (locB.y - locA.y) * 2;
+
+        offset_x = total_width / 4;
+        offset_y = 0;
+
+        offset_x += 360 - width / 2;
+        offset_y += 270 - height / 2;
+
+        ctx_b.drawImage(base_image, x, y, width, height, offset_x, offset_y, width, height);
+        ctx_a.drawImage(base_image, total_width / 2 + x, y, width, height, offset_x, offset_y, width, height);
     }
 });
